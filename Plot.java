@@ -32,8 +32,7 @@ public class Plot {
 				if(i == curr.x && j == curr.y) { //Point
 					System.out.print("*");
 					if(pointsIt.hasNext()) curr = (Point)pointsIt.next();
-				} else if((i == 0 && j == 0) || (i == 0 && j%10 == 0)
-						|| (j == 0 && i%10 == 0)) { //Origin or 10-point mark
+				} else if(i%5 == 0 && j%5 == 0) { //Origin or 5-point marks
 					System.out.print("+");
 				} else if(i == 0) { //Y-axis
 					if(j == yMin) {
@@ -122,6 +121,10 @@ class Point implements Comparable<Point> {
 	}
 	
 	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
+}
+ toString() {
 		return "(" + x + ", " + y + ")";
 	}
 }
