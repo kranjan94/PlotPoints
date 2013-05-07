@@ -9,7 +9,7 @@ public class Plot {
 
 	/*
 	 * Input should be in form:
-	 * 		java Plot [x1,y1] [x2,y2] ...
+	 * 		java Plot x1,y1 x2,y2 ...
 	 */
 	public static void main(String[] args) {
 		LinkedList<Comparable> points = new LinkedList<Comparable>();
@@ -32,7 +32,8 @@ public class Plot {
 				if(i == curr.x && j == curr.y) { //Point
 					System.out.print("*");
 					if(pointsIt.hasNext()) curr = (Point)pointsIt.next();
-				} else if(i == 0 && j == 0) { //Origin
+				} else if((i == 0 && j == 0) || (i == 0 && j%10 == 0)
+						|| (j == 0 && i%10 == 0)) { //Origin or 10-point mark
 					System.out.print("+");
 				} else if(i == 0) { //Y-axis
 					if(j == yMin) {
@@ -64,7 +65,6 @@ public class Plot {
 	 * @return		a Point with coordinates (x,y)
 	 */
 	private static Point readPoint(String text) {
-		text = text.substring(1,text.length()-1);
 		String[] numText = text.split(",");
 		return new Point(Integer.parseInt(numText[0].trim()), Integer.parseInt(numText[1].trim()));
 	}
