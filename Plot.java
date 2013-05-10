@@ -124,7 +124,3 @@ class Point implements Comparable<Point> {
 		return "(" + x + ", " + y + ")";
 	}
 }
- toString() {
-		return "(" + x + ", " + y + ")";
-	}
-}
